@@ -44,4 +44,8 @@ ocil: |-
 
 warnings:
     - general: |-
+<<<<<<< HEAD
         Automatic remediation is not available as each organization has unique requirements.
+=======
+        Automatic remediation is not available as each organization has unique requirements. 
+>>>>>>> stabilization-v0.1.69
