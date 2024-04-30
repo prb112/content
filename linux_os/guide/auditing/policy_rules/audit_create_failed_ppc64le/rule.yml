@@ -32,7 +32,8 @@ platforms:
     - ppc64le_arch
 
 identifiers:
-    cce@rhel9: CCE-85997-5
+    cce@rhel8: CCE-82374-0
+    cce@rhel9: CCE-83669-2
 
 references:
     nist: AU-2(a)
