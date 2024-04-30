@@ -445,6 +445,8 @@ XCCDF_PLATFORM_TO_PACKAGE = {
   "s390x_arch": None,
   "not_aarch64_arch": None,
   "aarch64_arch": None,
+  "not_ppc64le_arch": None,
+  "ppc64le_arch": None,
   "ovirt": None,
   "no_ovirt": None,
 }
