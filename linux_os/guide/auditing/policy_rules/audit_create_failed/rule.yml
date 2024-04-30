@@ -4,7 +4,7 @@ documentation_complete: true
 title: 'Configure auditing of unsuccessful file creations'
 
 {{% if x86_64_arch %}}
-  set file_contents_audit_create_failed =
+{{% set file_contents_audit_create_failed =
 "## Unsuccessful file creation (open with O_CREAT)
 -a always,exit -F arch=b32 -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
 -a always,exit -F arch=b64 -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
@@ -17,18 +17,18 @@ title: 'Configure auditing of unsuccessful file creations'
 -a always,exit -F arch=b32 -S open -F a1&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
 -a always,exit -F arch=b64 -S open -F a1&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
 -a always,exit -F arch=b32 -S creat -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
--a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create"
+-a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create"%}}
 {{% endif %}}
 
 {{% if ppc64le_arch %}}
-  set file_contents_audit_create_failed =
-    "## Unsuccessful file creation (open with O_CREAT)
-    -a always,exit -F arch=ppc64le -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
-    -a always,exit -F arch=ppc64le -S open -F a1&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
-    -a always,exit -F arch=ppc64le -S creat -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
-    -a always,exit -F arch=ppc64le -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
-    -a always,exit -F arch=ppc64le -S open -F a1&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
-    -a always,exit -F arch=ppc64le -S creat -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create"
+{{% set file_contents_audit_create_failed =
+"## Unsuccessful file creation (open with O_CREAT)
+-a always,exit -F arch=ppc64le -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
+-a always,exit -F arch=ppc64le -S open -F a1&amp;0100 -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
+-a always,exit -F arch=ppc64le -S creat -F exit=-EACCES -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
+-a always,exit -F arch=ppc64le -S openat,open_by_handle_at -F a2&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
+-a always,exit -F arch=ppc64le -S open -F a1&amp;0100 -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create
+-a always,exit -F arch=ppc64le -S creat -F exit=-EPERM -F auid&gt;=" ~ uid_min ~ " -F auid!=unset -F key=unsuccessful-create"%}}
 {{% endif %}}
 
 description: |-
